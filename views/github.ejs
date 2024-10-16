@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 96px;
+            height: 96px;
+            margin-top: 10px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .logout-button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .logout-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Successful!</h1>
+    <h2>Welcome, <%= user.username %>!</h2>
+    <img src="<%= user.thumbnail %>" alt="<%= user.username %>'s thumbnail" />
+    <p>Your GitHub ID is: <%= user.githubId %></p>
+    <p>Your User ID is: <%= user._id %></p>
+    <p>Your Email is: <%= user.email %></p>
+
+    <!-- Link logout button to the signout route -->
+    <form action="/auth/github/signout" method="GET">
+        <button class="logout-button">Logout</button>
+    </form>
+</body>
+</html>
